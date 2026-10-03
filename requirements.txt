@@ -1,1 +1,3 @@
-flask pronotepy gunicorn
+flask
+pronotepy
+gunicorn
