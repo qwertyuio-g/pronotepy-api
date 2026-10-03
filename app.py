@@ -9,7 +9,7 @@ def get_grades():
     data = request.json
     try:
         client = pronotepy.Client(
-            'https://0921289f.index-education.net/pronote/eleve.html',
+            'https://4010004a.index-education.net/pronote/eleve.html',
             username=data['username'],
             password=data['password']
         )
