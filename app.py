@@ -17,8 +17,12 @@ def get_grades():
         subjects = []
         for avg in period.averages:
             try:
-                val = float(str(avg.student).replace(',', '.'))
-                subjects.append({'name': avg.subject.name, 'average': round(val, 2)})
+                val = float(str(avg.student).replace(',', '.'))       
+                subjects.append({
+    'name': grade.subject.name,
+    'average': float(grade.student_average) if grade.student_average else None,
+    'class_average': float(grade.class_average) if grade.class_average else None
+})
             except:
                 pass
         try:
