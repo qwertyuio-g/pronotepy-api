@@ -30,11 +30,26 @@ def get_grades():
                 })
             except:
                 pass
+
         try:
             general = float(str(period.overall_average).replace(',', '.'))
         except:
             general = round(sum(s['average'] for s in subjects) / len(subjects), 2) if subjects else 0
-        return jsonify({'success': True, 'subjects': subjects, 'general': general})
+
+        # Moyenne générale de classe
+        try:
+            general_class = float(str(period.class_overall_average).replace(',', '.'))
+        except:
+            class_avgs = [s['class_average'] for s in subjects if s['class_average'] is not None]
+            general_class = round(sum(class_avgs) / len(class_avgs), 2) if class_avgs else None
+
+        return jsonify({
+            'success': True,
+            'subjects': subjects,
+            'general': general,
+            'general_class_average': general_class
+        })
+
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 401
 
