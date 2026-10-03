@@ -19,8 +19,8 @@ def get_grades():
             try:
                 val = float(str(avg.student).replace(',', '.'))       
                 subjects.append({
-    'name': grade.subject.name,
-    'average': float(grade.student_average) if grade.student_average else None,
+    'name': ...,
+    'average': float(...),
     'class_average': float(grade.class_average) if grade.class_average else None
 })
             except:
